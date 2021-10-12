@@ -11,22 +11,20 @@ const TodoItem = ({ todo }) => {
   return (
     <div>
       <div className="list-description">
-        <p className="container">
-          {todo.title}
-        </p>
-        <div>
-          <button className="button button1" onClick={() => setIsEdit(true)}>
-            Detail
-          </button>
-          <button
-            className="button button2"
-            onClick={() => dispatch(todoDeleted(todo.id))}
-          >
-            Remove
-          </button>
+        <div className="detail">
+          <p className="container">{todo.title}</p>
+          <div>
+            <button className="button button1" onClick={() => setIsEdit(true)}>
+              Detail
+            </button>
+            <button
+              className="button button2"
+              onClick={() => dispatch(todoDeleted(todo.id))}
+            >
+              Remove
+            </button>
+          </div>
         </div>
-      </div>
-      <div>
         {isEdit && (
           <EditTodo
             id={todo.id}

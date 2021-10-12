@@ -1,22 +1,17 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   font-family: "Source Sans Pro", sans-serif;
 }
 .column {
-  display: flex;
-  width: 1209px;
-  height: 958px;
-  margin: 100px auto;
+  width: 100%;
   border: 1px solid black;
 }
 .new-task {
-  border-right: 1px solid #000000;
-  padding: 40px;
+  border-bottom: 1px solid #000000;
+  padding: 20px;
 }
 .input-task {
-  width: 419px;
+  width: 100%;
   height: 32px;
   padding: 10px;
   border: 1px solid #bdbdbd;
@@ -26,13 +21,13 @@
   font-weight: bold;
 }
 .description-text {
-  width: 421px;
+  width: 100%;
   height: 125px;
   border: 1px solid #000;
 }
 .date {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 [type="date"] {
   background: #fff
@@ -45,24 +40,26 @@
 [type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
-
+.piority {
+  margin-top: 20px;
+}
 label {
   display: block;
 }
 .pick-date {
   border: 1px solid #000000;
   background-color: #fff;
-  width: 203px;
+  width: 100%;
   height: 31px;
   padding: 8px;
 }
 .select-piority {
-  width: 192px;
+  width: 100%;
   height: 30px;
   border: 1px solid #000000;
 }
 .todo-list {
-  padding: 40px;
+  padding: 20px;
 }
 .title {
   margin-bottom: 40px;
@@ -71,7 +68,7 @@ label {
   font-weight: bold;
 }
 .form-search {
-  width: 550px;
+  width: 100%;
   height: 33px;
   padding: 10px;
   border: 1px solid #bdbdbd;
@@ -82,60 +79,6 @@ label {
   align-items: center;
   padding: 15px;
   border-bottom: 1px solid #000000;
-}
-.container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-}
-
-.container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-.container input:checked ~ .checkmark {
-  background-color: #2196f3;
-}
-
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.container input:checked ~ .checkmark:after {
-  display: block;
-}
-
-.container .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
 }
 .button {
   text-align: center;
@@ -161,13 +104,13 @@ label {
   border-radius: 5px;
 }
 .title-todo {
-  width: 503px;
+  width: 100%;
   height: 31px;
   padding: 10px;
   border: 1px solid #bdbdbd;
 }
 .description-todo {
-  width: 505px;
+  width: 100%;
   height: 122px;
   border: 1px solid #000;
   padding: 10px;
@@ -179,7 +122,7 @@ label {
   padding: 10px;
 }
 .select-piority-todo {
-  width: 230px;
+  width: 100%;
   height: 30px;
   border: 1px solid #000000;
 }
@@ -190,16 +133,67 @@ label {
   height: 31px;
   border: none;
   border-radius: 5px;
-  margin: 40px 0;
+  margin: 20px 0;
   font-weight: bold;
   font-size: 15px;
   cursor: pointer;
 }
 .list-description {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
   border: 1px solid #000000;
   margin: 20px 0;
 }
+.detail {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ 
+}
+.edit-todo {
+  padding: 30px;
+}
+@media only screen and (min-width: 768px) {
+  .column {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 1209px;
+    margin: 100px auto;
+    gap: 30px;
+    padding: 0 30px;
+  }
+  .new-task {
+    padding: 0;
+    width: 419px;
+    /* border-right: 1px solid #000000; */
+    border-bottom: none;
+  }
+  .todo-list{
+    width: 550px;
+  }
+  .date {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .piority {
+    margin-top: 0;
+  }
+  .pick-date {
+    width: 203px;
+  }
+  .pick-date-todo {
+    width: 242px;
+  }
+  .select-piority {
+    width: 192px;
+  }
+  .select-piority-todo {
+    width: 230px;
+  }
+  .btn {
+    margin: 40px 0;
+  }
+  .todo-list {
+    padding: 0;
+  }
+} 

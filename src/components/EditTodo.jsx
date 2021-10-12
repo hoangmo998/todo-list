@@ -27,7 +27,7 @@ const EditTodo = (props) => {
     props.toggleFormEdit();
   };
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="edit-todo">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -46,7 +46,7 @@ const EditTodo = (props) => {
             Lorem Ipsum...
           </textarea>
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div className="date">
           <div className="due-date">
             <label htmlFor="due-date">Due Date</label>
             <input
@@ -55,7 +55,7 @@ const EditTodo = (props) => {
               type="date"
               name="due-date"
               id="due-date"
-              className="pick-date"
+              className="pick-date-todo"
               value={date}
               onChange={handleDate}
             />
