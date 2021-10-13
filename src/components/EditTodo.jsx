@@ -26,6 +26,13 @@ const EditTodo = (props) => {
     );
     props.toggleFormEdit();
   };
+  const disablePastDate = () => {
+    const today = new Date();
+    const dd = String(today.getDate() + 1).padStart(2, "0");
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const yyyy = today.getFullYear();
+    return yyyy + "-" + mm + "-" + dd;
+  };
   return (
     <div className="edit-todo">
       <form onSubmit={handleSubmit}>
@@ -58,6 +65,7 @@ const EditTodo = (props) => {
               className="pick-date-todo"
               value={date}
               onChange={handleDate}
+              min={disablePastDate()}
             />
           </div>
           <div className="piority">
@@ -75,7 +83,9 @@ const EditTodo = (props) => {
             </select>
           </div>
         </div>
-        <button className="btn" type="submit">Update</button>
+        <button className="btn" type="submit">
+          Update
+        </button>
       </form>
     </div>
   );

@@ -31,6 +31,13 @@ const AddTodo = () => {
     );
     clearForm();
   };
+  const disablePastDate = () => {
+    const today = new Date();
+    const dd = String(today.getDate() + 1).padStart(2, "0");
+    const mm = String(today.getMonth() + 1).padStart(2, "0"); 
+    const yyyy = today.getFullYear();
+    return yyyy + "-" + mm + "-" + dd;
+};
   return (
     <div className="new-task">
       <p className="title">New Task</p>
@@ -63,6 +70,7 @@ const AddTodo = () => {
               className="pick-date"
               value={date}
               onChange={handleDate}
+              min={disablePastDate()}
             />
           </div>
           <div className="piority">
